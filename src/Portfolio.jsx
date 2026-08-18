@@ -591,6 +591,7 @@ export default function Portfolio() {
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
+  const [resumeHover, setResumeHover] = useState(false);
   const HEADER_HEIGHT = 76;
   const heroRef = useRef(null);
   const sectionRefs = {
@@ -782,30 +783,29 @@ export default function Portfolio() {
             >
               Software Developer
             </p>
-            {/* <a
-            href="/resume.pdf"
-            download="Gaby-Kelsey-Resume.pdf"
+            <a
+            onMouseEnter={() => setResumeHover(true)}
+            onMouseLeave={() => setResumeHover(false)}
+            href="/CV_KELSEY_GABRIELLEMADISON.pdf"
+            download="Gabrielle-Kelsey-Resume.pdf"
             style={{
                 display: "inline-block",
                 textDecoration: "none",
-            }}
-            ><button
-              style={{
                 fontFamily: "'Lexend', sans-serif",
                 fontSize: "0.78rem",
                 fontWeight: 600,
+                marginTop: 24,
                 letterSpacing: "0.02em",
                 color: C.ink,
                 border: `1px solid ${C.line}`,
                 borderRadius: 6,
                 padding: "5px 12px",
-                background: hover ? `${C.bg}1A` : "transparent",
+                background: resumeHover ? `${C.magenta}CA` : `${C.bg}CA`,
                 transition: "background 0.3s ease",
               }}
             >
               Download My Resume
-            </button>
-            </a> */}
+            </a>
           </div>
 
           <div
