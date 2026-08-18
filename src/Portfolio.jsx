@@ -11,6 +11,7 @@ import { Linkedin, Github, Mail, Facebook, ArrowUpRight, Menu, X } from "lucide-
 ----------------------------------------------------------------*/
 const C = {
   bg: "#0A0A0F",
+  bgLight: "#F0F0F5",
   panel: "#101018",
   ink: "#F6F4EF",
   muted: "#9C99A8",
@@ -24,8 +25,8 @@ const C = {
 
 const NAV_LINKS = [
   { id: "home", label: "Home" },
-  { id: "work", label: "Work" },
   { id: "about", label: "About" },
+  { id: "work", label: "Work" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -63,8 +64,8 @@ const PROJECTS = [
 ];
 
 const SKILLS = [
-  "React", "React Native", "TypeScript", "Node.js",
-  "Python", "PostgreSQL", "Firebase", "Machine Learning",
+  "Python", "JavaScript", "Java", "C/C++", "Kotlin", 
+  "React", "Node.js/Express.js", "SQL", "MongoDB", "Docker", "AWS"
 ];
 
 /* ---------------------------------------------------------------
@@ -534,7 +535,7 @@ function SocialIcon({ Icon, href, label, orientation = "vertical" }) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        color: hover ? C.accent : C.muted,
+        color: hover ? C.magenta : C.muted,
         transition: "color 0.25s ease, transform 0.25s ease",
         transform: hover ? (orientation === "vertical" ? "translateX(-3px)" : "translateY(-3px)") : "none",
         display: "inline-flex",
@@ -576,7 +577,7 @@ function NavLink({ label, active, onClick }) {
           bottom: 0,
           height: 2,
           borderRadius: 2,
-          background: C.accent,
+          background: C.magenta,
           transform: hover || active ? "scaleX(1)" : "scaleX(0)",
           transformOrigin: "left",
           transition: "transform 0.25s ease",
@@ -594,8 +595,8 @@ export default function Portfolio() {
   const heroRef = useRef(null);
   const sectionRefs = {
     home: useRef(null),
-    work: useRef(null),
     about: useRef(null),
+    work: useRef(null),
     contact: useRef(null),
   };
 
@@ -690,17 +691,17 @@ export default function Portfolio() {
             ))}
           </nav>
 
-          <button
+          {/* <button
             onClick={() => setMenuOpen((v) => !v)}
             className="md:hidden"
             aria-label="Toggle menu"
             style={{ background: "none", border: "none", color: C.ink, cursor: "pointer" }}
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          </button> */}
         </div>
 
-        {menuOpen && (
+        {/* {menuOpen && (
           <div
             className="md:hidden"
             style={{
@@ -715,7 +716,7 @@ export default function Portfolio() {
               <NavLink key={l.id} label={l.label} active={active === l.id} onClick={() => scrollTo(l.id)} />
             ))}
           </div>
-        )}
+        )} */}
       </header>
 
       {/* ---------------- HERO ---------------- */}
@@ -800,7 +801,7 @@ export default function Portfolio() {
       </section>
 
       {/* ---------------- TAGLINE BAND ---------------- */}
-      <section
+      {/* <section
         style={{
           position: "relative",
           background: C.bg,
@@ -840,51 +841,7 @@ export default function Portfolio() {
           <br />
           becomes creation
         </p>
-      </section>
-
-      {/* ---------------- WORK ---------------- */}
-      <section
-        ref={sectionRefs.work}
-        style={{
-          background: `linear-gradient(180deg, ${C.bg} 0%, #FFFFFF08 200px, #FFFFFF08 100%)`,
-          padding: "90px clamp(40px, 5vw, 80px)",
-          scrollMarginTop: HEADER_HEIGHT,
-        }}
-      >
-        <div style={{ width: "100%" }}>
-          <div style={{ marginBottom: 44 }}>
-            <span
-              style={{
-                fontFamily: "'Lexend', sans-serif",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: C.accent,
-              }}
-            >
-              Selected Work
-            </span>
-            <h2
-              style={{
-                fontFamily: "'Lexend', sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(1.8rem, 4vw, 2.4rem)",
-                color: C.ink,
-                margin: "10px 0 0",
-              }}
-            >
-              Three things I've built
-            </h2>
-          </div>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
-            {PROJECTS.map((p, i) => (
-              <ProjectCard key={p.id} project={p} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
+      </section> */}
 
       {/* ---------------- ABOUT ---------------- */}
       <section
@@ -892,7 +849,7 @@ export default function Portfolio() {
           sectionRefs.about.current = el;
           aboutRef.current = el;
         }}
-        style={{ padding: "100px clamp(40px, 5vw, 80px)", background: C.bg, scrollMarginTop: HEADER_HEIGHT }}
+        style={{ padding: "100px clamp(40px, 5vw, 80px)", background: "FFFFFF08", scrollMarginTop: HEADER_HEIGHT }}
       >
         <div
           style={{
@@ -907,7 +864,7 @@ export default function Portfolio() {
           className="md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]"
         >
           <div>
-            <span
+            {/* <span
               style={{
                 fontFamily: "'Lexend', sans-serif",
                 fontSize: "0.8rem",
@@ -918,7 +875,7 @@ export default function Portfolio() {
               }}
             >
               About
-            </span>
+            </span> */}
             <h2
               style={{
                 fontFamily: "'Lexend', sans-serif",
@@ -928,20 +885,49 @@ export default function Portfolio() {
                 margin: "10px 0 0",
               }}
             >
-              Hi, I'm Gabrielle.
+              Hi, I'm Gabrielle
+            </h2>
+            <h2
+              style={{
+                fontFamily: "'Lexend', sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(1.7rem, 3.6vw, 2.2rem)",
+                color: C.ink,
+                margin: "10px 0 0",
+              }}
+            >
+              I <span style={{ 
+                    color: C.bg,
+                    // WebkitTextStroke: `0.5px ${C.ink}`,
+                    textShadow: `-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff`,
+                }}>
+                    build
+                </span>,{' '}
+                <span style={{ 
+                    color: C.bg,
+                    textShadow: `-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff`,
+                }}>
+                    design
+                </span>, &{' '}
+                <span style={{ 
+                    color: C.bg,
+                    textShadow: `-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff`,
+                }}>
+                    solve problems
+                </span>.
             </h2>
           </div>
 
           <div>
             <p style={{ color: C.muted, fontSize: "1.05rem", lineHeight: 1.75, margin: "0 0 18px" }}>
-              I'm a software developer who likes building tools for people who don't usually get
-              custom software — caseworkers, families, and grid analysts. I work across the stack,
-              from React interfaces down to the data pipelines and models underneath them.
+              I’m a software developer based in Antipolo, Philippines with experience in delivering 
+              end-to-end applications. I’m always looking for opportunities where I can keep learning 
+              and contribute to meaningful projects.
             </p>
             <p style={{ color: C.mutedSoft, fontSize: "1rem", lineHeight: 1.75, margin: "0 0 28px" }}>
-              Most of what I build starts as a question — how do you make a paper process
-              searchable, or a household schedule visible to everyone in it, or a spot-market price
-              predictable a day in advance. That question usually turns into the product.
+              My current point of interest lies in my thesis, where I'm building a 3D facial reconstruction 
+              pipeline to generate synthetic datasets aimed at improving the performance of 
+              lip-reading (visual speech recognition) models.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               {SKILLS.map((s) => (
@@ -961,6 +947,50 @@ export default function Portfolio() {
                 </span>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- WORK ---------------- */}
+      <section
+        ref={sectionRefs.work}
+        style={{
+          background: `linear-gradient(180deg, ${C.bg} 0%, #FFFFFF08 200px, #FFFFFF08 100%)`,
+          padding: "90px clamp(40px, 5vw, 80px)",
+          scrollMarginTop: HEADER_HEIGHT,
+        }}
+      >
+        <div style={{ width: "100%" }}>
+          <div style={{ marginBottom: 44 }}>
+            {/* <span
+              style={{
+                fontFamily: "'Lexend', sans-serif",
+                fontSize: "0.8rem",
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: C.accent,
+              }}
+            >
+              Selected Work
+            </span> */}
+            <h2
+              style={{
+                fontFamily: "'Lexend', sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(1.8rem, 4vw, 2.4rem)",
+                color: C.ink,
+                margin: "10px 0 0",
+              }}
+            >
+              Projects I've Worked On
+            </h2>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+            {PROJECTS.map((p, i) => (
+              <ProjectCard key={p.id} project={p} index={i} />
+            ))}
           </div>
         </div>
       </section>
@@ -988,7 +1018,7 @@ export default function Portfolio() {
             transition: "opacity 0.7s ease, transform 0.7s ease",
           }}
         >
-          <span
+          {/* <span
             style={{
               fontFamily: "'Lexend', sans-serif",
               fontSize: "0.8rem",
@@ -999,7 +1029,7 @@ export default function Portfolio() {
             }}
           >
             Contact
-          </span>
+          </span> */}
           <h2
             style={{
               fontFamily: "'Lexend', sans-serif",
@@ -1012,11 +1042,11 @@ export default function Portfolio() {
             Let's build something.
           </h2>
           <p style={{ color: C.muted, fontSize: "1.02rem", lineHeight: 1.7, margin: "0 0 30px" }}>
-            Have a project in mind, or just want to talk shop? My inbox is open.
+            Have a project in mind, or just want to talk? My inbox is open!
           </p>
 
           <a
-            href="mailto:hello@gabriellekelsey.dev"
+            href="mailto:hello@gabriellemkelsey@gmail.com"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -1025,7 +1055,7 @@ export default function Portfolio() {
               fontWeight: 700,
               fontSize: "0.95rem",
               color: C.bg,
-              background: C.accent,
+              background: C.magenta,
               borderRadius: 8,
               padding: "14px 26px",
               textDecoration: "none",
@@ -1040,15 +1070,15 @@ export default function Portfolio() {
               e.currentTarget.style.boxShadow = "none";
             }}
           >
-            hello@gabriellekelsey.dev
+            hello@gabriellemkelsey@gmail.com
             <ArrowUpRight size={18} />
           </a>
 
           <div style={{ display: "flex", justifyContent: "center", gap: 26, marginTop: 44 }}>
-            <SocialIcon Icon={Linkedin} href="https://linkedin.com" label="LinkedIn" orientation="horizontal" />
-            <SocialIcon Icon={Github} href="https://github.com" label="GitHub" orientation="horizontal" />
-            <SocialIcon Icon={Mail} href="mailto:hello@gabriellekelsey.dev" label="Email" orientation="horizontal" />
-            <SocialIcon Icon={Facebook} href="https://facebook.com" label="Facebook" orientation="horizontal" />
+            <SocialIcon Icon={Linkedin} href="https://www.linkedin.com/in/gabrielle-kelsey-88796431b/" label="LinkedIn" orientation="horizontal" />
+            <SocialIcon Icon={Github} href="https://github.com/Kelsey4980" label="GitHub" orientation="horizontal" />
+            <SocialIcon Icon={Mail} href="mailto:hello@gabriellemkelsey@gmail.com" label="Email" orientation="horizontal" />
+            <SocialIcon Icon={Facebook} href="https://www.facebook.com/Kelsey.gabrielle.90" label="Facebook" orientation="horizontal" />
           </div>
         </div>
       </section>
