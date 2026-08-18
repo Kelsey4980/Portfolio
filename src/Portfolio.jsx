@@ -39,6 +39,7 @@ const PROJECTS = [
       "A case management platform that replaces paper folders and spreadsheets with a searchable, permissioned record system for caseworkers. It is designed with an intake team at a legal-aid nonprofit.",
     tags: ["React", "Node.js", "MongoDB"],
     color: C.magenta,
+    url: "https://github.com/unboundcase/cssweng-s15-group5/tree/main",
     art: "cabinet",
   },
   {
@@ -49,6 +50,7 @@ const PROJECTS = [
       "Kasama is designed to help households and roommates collaborate on daily responsibilities. The app provides a dedicated space for managing shared chores and notes.",
     tags: ["Android", "Kotlin", "Firebase", "Room"],
     color: C.blue,
+    url: "https://github.com/haniellejermayn/Kasama",
     art: "household",
   },
   {
@@ -59,6 +61,7 @@ const PROJECTS = [
       "A forecasting model for the Philippine Wholesale Electricity Spot Market, trained on historical demand, weather, and grid data to project next-day settlement prices.",
     tags: ["Pandas", "Scikit-Learn", "PyTorch", "TensorFlow"],
     color: C.violet,
+    url: "https://github.com/haniellejermayn/wesm-price-prediction",
     art: "grid",
   },
 ];
@@ -723,116 +726,124 @@ function ProjectCard({ project, index }) {
   const [hover, setHover] = useState(false);
 
   return (
-    <div
-      ref={ref}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        position: "relative",
-        borderRadius: 4,
-        overflow: "hidden",
-        border: `1px solid ${hover ? project.color : C.line}`,
-        // borderTop: `3px solid ${hover ? project.color : C.line}`,
-        background: C.panel,
-        cursor: "default",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0px)" : "translateY(28px)",
-        transition: `opacity 0.7s ease ${index * 0.08}s, transform 0.7s ease ${index * 0.08}s, border-color 0.3s ease`,
-      }}
-      className="w-full"
-    >
-      <div
+    <a 
+    href={project.url} target="_blank" 
+    rel="noopener noreferrer"
+    style={{
+        textDecoration: "none",
+        color: "inherit",
+    }}>
+        <div
+        ref={ref}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
         style={{
-          position: "relative",
-          height: 280,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+            position: "relative",
+            borderRadius: 4,
+            overflow: "hidden",
+            border: `1px solid ${hover ? project.color : C.line}`,
+            // borderTop: `3px solid ${hover ? project.color : C.line}`,
+            background: C.panel,
+            cursor: "default",
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0px)" : "translateY(28px)",
+            transition: `opacity 0.7s ease ${index * 0.08}s, transform 0.7s ease ${index * 0.08}s, border-color 0.3s ease`,
         }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            opacity: hover ? 0.9 : 0.65,
-            transform: hover ? "scale(1.08)" : "scale(1)",
-            transition: "opacity 0.5s ease, transform 0.6s ease",
-          }}
+        className="w-full"
         >
-          <CardArt kind={project.art} color={project.color} />
-        </div>
         <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: `linear-gradient(to bottom, transparent, ${C.panel})`,
-          }}
-        />
-      </div>
-
-      <div style={{ padding: "28px 28px 30px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-          {/* <span style={{ width: 9, height: 9, borderRadius: 9999, background: project.color, display: "inline-block" }} /> */}
-          <h3
             style={{
-              fontFamily: "'Lexend', sans-serif",
-              fontWeight: 700,
-              fontSize: "1.7rem",
-              color: C.ink,
-              margin: 0,
+            position: "relative",
+            height: 280,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             }}
-          >
-            {project.name}
-          </h3>
-          <ArrowUpRight
-            size={20}
-            color={project.color}
-            style={{
-              marginLeft: "auto",
-              opacity: hover ? 1 : 0,
-              transform: hover ? "translate(0,0)" : "translate(-4px,4px)",
-              transition: "opacity 0.3s ease, transform 0.3s ease",
-            }}
-          />
-        </div>
-        <p style={{ color: C.muted, fontFamily: "'Lexend', sans-serif", fontSize: "1rem", margin: "0 0 16px" }}>
-          {project.tagline}
-        </p>
-        <p
-          style={{
-            color: C.mutedSoft,
-            fontFamily: "'Lexend', sans-serif",
-            fontSize: "0.92rem",
-            lineHeight: 1.6,
-            margin: "0 0 18px",
-            maxWidth: 560,
-          }}
         >
-          {project.description}
-        </p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-          {project.tags.map((t) => (
-            <span
-              key={t}
-              style={{
-                fontFamily: "'Lexend', sans-serif",
-                fontSize: "0.78rem",
-                fontWeight: 600,
-                letterSpacing: "0.02em",
-                color: C.ink,
-                border: `1px solid ${C.line}`,
-                borderRadius: 6,
-                padding: "5px 12px",
-                background: hover ? `${project.color}1A` : "transparent",
-                transition: "background 0.3s ease",
-              }}
+            <div
+            style={{
+                position: "absolute",
+                inset: 0,
+                opacity: hover ? 0.9 : 0.65,
+                transform: hover ? "scale(1.08)" : "scale(1)",
+                transition: "opacity 0.5s ease, transform 0.6s ease",
+            }}
             >
-              {t}
-            </span>
-          ))}
+            <CardArt kind={project.art} color={project.color} />
+            </div>
+            <div
+            style={{
+                position: "absolute",
+                inset: 0,
+                background: `linear-gradient(to bottom, transparent, ${C.panel})`,
+            }}
+            />
         </div>
-      </div>
-    </div>
+
+        <div style={{ padding: "28px 28px 30px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+            {/* <span style={{ width: 9, height: 9, borderRadius: 9999, background: project.color, display: "inline-block" }} /> */}
+            <h3
+                style={{
+                fontFamily: "'Lexend', sans-serif",
+                fontWeight: 700,
+                fontSize: "1.7rem",
+                color: C.ink,
+                margin: 0,
+                }}
+            >
+                {project.name}
+            </h3>
+            <ArrowUpRight
+                size={20}
+                color={project.color}
+                style={{
+                marginLeft: "auto",
+                opacity: hover ? 1 : 0,
+                transform: hover ? "translate(0,0)" : "translate(-4px,4px)",
+                transition: "opacity 0.3s ease, transform 0.3s ease",
+                }}
+            />
+            </div>
+            <p style={{ color: C.muted, fontFamily: "'Lexend', sans-serif", fontSize: "1rem", margin: "0 0 16px" }}>
+            {project.tagline}
+            </p>
+            <p
+            style={{
+                color: C.mutedSoft,
+                fontFamily: "'Lexend', sans-serif",
+                fontSize: "0.92rem",
+                lineHeight: 1.6,
+                margin: "0 0 18px",
+                maxWidth: 560,
+            }}
+            >
+            {project.description}
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {project.tags.map((t) => (
+                <span
+                key={t}
+                style={{
+                    fontFamily: "'Lexend', sans-serif",
+                    fontSize: "0.78rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.02em",
+                    color: C.ink,
+                    border: `1px solid ${C.line}`,
+                    borderRadius: 6,
+                    padding: "5px 12px",
+                    background: hover ? `${project.color}1A` : "transparent",
+                    transition: "background 0.3s ease",
+                }}
+                >
+                {t}
+                </span>
+            ))}
+            </div>
+        </div>
+        </div>
+    </a>
   );
 }
 
@@ -1126,10 +1137,10 @@ export default function Portfolio() {
             }}
             className="hidden sm:flex"
           >
-            <SocialIcon Icon={Linkedin} href="https://linkedin.com" label="LinkedIn" />
-            <SocialIcon Icon={Github} href="https://github.com" label="GitHub" />
-            <SocialIcon Icon={Mail} href="mailto:hello@gabriellekelsey.dev" label="Email" />
-            <SocialIcon Icon={Facebook} href="https://facebook.com" label="Facebook" />
+            <SocialIcon Icon={Linkedin} href="https://www.linkedin.com/in/gabrielle-kelsey-88796431b/" label="LinkedIn" />
+            <SocialIcon Icon={Github} href="https://github.com/Kelsey4980" label="GitHub" />
+            <SocialIcon Icon={Mail} href="mailto:hello@gabriellemkelsey@gmail.com" label="Email" />
+            <SocialIcon Icon={Facebook} href="https://www.facebook.com/Kelsey.gabrielle.90" label="Facebook" />
           </div>
         </div>
       </section>
