@@ -36,8 +36,8 @@ const PROJECTS = [
     name: "Unbound",
     tagline: "Case Management System",
     description:
-      "A case-management platform that replaces paper folders and spreadsheets with a searchable, permissioned record system for caseworkers — designed with an intake team at a legal-aid nonprofit.",
-    tags: ["React", "Node.js", "PostgreSQL"],
+      "A case management platform that replaces paper folders and spreadsheets with a searchable, permissioned record system for caseworkers. It is designed with an intake team at a legal-aid nonprofit.",
+    tags: ["React", "Node.js", "MongoDB"],
     color: C.magenta,
     art: "cabinet",
   },
@@ -46,8 +46,8 @@ const PROJECTS = [
     name: "Kasama",
     tagline: "Collaborative Household Management App",
     description:
-      "Kasama — Filipino for “together” — helps families split chores, track a shared budget, and keep one household calendar everyone can actually see.",
-    tags: ["React Native", "Firebase", "Expo"],
+      "Kasama is designed to help households and roommates collaborate on daily responsibilities. The app provides a dedicated space for managing shared chores and notes.",
+    tags: ["Android", "Kotlin", "Firebase", "Room"],
     color: C.blue,
     art: "household",
   },
@@ -57,7 +57,7 @@ const PROJECTS = [
     tagline: "Electricity Spot Market Forecasting",
     description:
       "A forecasting model for the Philippine Wholesale Electricity Spot Market, trained on historical demand, weather, and grid data to project next-day settlement prices.",
-    tags: ["Python", "XGBoost", "Pandas", "Streamlit"],
+    tags: ["Pandas", "Scikit-Learn", "PyTorch", "TensorFlow"],
     color: C.violet,
     art: "grid",
   },
@@ -419,10 +419,10 @@ function ProjectCard({ project, index }) {
       onMouseLeave={() => setHover(false)}
       style={{
         position: "relative",
-        borderRadius: 8,
+        borderRadius: 4,
         overflow: "hidden",
-        border: `1px solid ${C.line}`,
-        borderTop: `3px solid ${hover ? project.color : C.line}`,
+        border: `1px solid ${hover ? project.color : C.line}`,
+        // borderTop: `3px solid ${hover ? project.color : C.line}`,
         background: C.panel,
         cursor: "default",
         opacity: visible ? 1 : 0,
@@ -462,7 +462,7 @@ function ProjectCard({ project, index }) {
 
       <div style={{ padding: "28px 28px 30px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-          <span style={{ width: 9, height: 9, borderRadius: 9999, background: project.color, display: "inline-block" }} />
+          {/* <span style={{ width: 9, height: 9, borderRadius: 9999, background: project.color, display: "inline-block" }} /> */}
           <h3
             style={{
               fontFamily: "'Lexend', sans-serif",
@@ -541,7 +541,7 @@ function SocialIcon({ Icon, href, label, orientation = "vertical" }) {
         display: "inline-flex",
       }}
     >
-      <Icon size={23} strokeWidth={1.7} />
+      <Icon size={40} strokeWidth={1.7} />
     </a>
   );
 }
