@@ -562,7 +562,7 @@ function NavLink({ label, active, onClick }) {
         fontWeight: 600,
         letterSpacing: "0.08em",
         textTransform: "uppercase",
-        color: active || hover ? C.ink : C.muted,
+        color: active || hover ? C.magenta : C.muted,
         position: "relative",
         padding: "6px 2px",
         transition: "color 0.25s ease",
@@ -577,7 +577,7 @@ function NavLink({ label, active, onClick }) {
           bottom: 0,
           height: 2,
           borderRadius: 2,
-          background: C.magenta,
+          background: C.bg,
           transform: hover || active ? "scaleX(1)" : "scaleX(0)",
           transformOrigin: "left",
           transition: "transform 0.25s ease",
@@ -782,6 +782,30 @@ export default function Portfolio() {
             >
               Software Developer
             </p>
+            {/* <a
+            href="/resume.pdf"
+            download="Gaby-Kelsey-Resume.pdf"
+            style={{
+                display: "inline-block",
+                textDecoration: "none",
+            }}
+            ><button
+              style={{
+                fontFamily: "'Lexend', sans-serif",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                letterSpacing: "0.02em",
+                color: C.ink,
+                border: `1px solid ${C.line}`,
+                borderRadius: 6,
+                padding: "5px 12px",
+                background: hover ? `${C.bg}1A` : "transparent",
+                transition: "background 0.3s ease",
+              }}
+            >
+              Download My Resume
+            </button>
+            </a> */}
           </div>
 
           <div
@@ -1063,11 +1087,16 @@ export default function Portfolio() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = `0 10px 24px ${C.accent}44`;
+              e.currentTarget.style.boxShadow = `
+                0 0 0 6px ${C.bg},
+                0 0 0 7px ${C.magenta},
+                0 10px 24px ${C.bg}44
+              `;
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(0)";
               e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.border = "1px solid transparent";
             }}
           >
             hello@gabriellemkelsey@gmail.com
