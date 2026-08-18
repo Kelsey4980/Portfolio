@@ -14,3 +14,13 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Credits & Inspiration
+
+This portfolio was inspired by and built with ideas, resources, and design references from:
+
+- [Ambient Canvas Backgrounds](https://github.com/crnacura/AmbientCanvasBackgrounds) by [Manoela Ilic (crnacura)](https://github.com/crnacura) — for the ambient canvas background effects.
+- [Gloria Lo](https://www.glorialo.design/) — for portfolio design and visual inspiration.
+- [Riccardo Zanutta](https://riccardozanutta.com/) — for portfolio design, interactions, and frontend inspiration.
+
+Thank you to the creators for sharing their work and inspiring this project.
