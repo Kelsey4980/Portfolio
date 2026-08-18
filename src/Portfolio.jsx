@@ -1139,7 +1139,7 @@ export default function Portfolio() {
           >
             <SocialIcon Icon={Linkedin} href="https://www.linkedin.com/in/gabrielle-kelsey-88796431b/" label="LinkedIn" />
             <SocialIcon Icon={Github} href="https://github.com/Kelsey4980" label="GitHub" />
-            <SocialIcon Icon={Mail} href="mailto:hello@gabriellemkelsey@gmail.com" label="Email" />
+            <SocialIcon Icon={Mail} href="https://mail.google.com/mail/?view=cm&fs=1&to=gabriellemkelsey@gmail.com" label="Email" />
             <SocialIcon Icon={Facebook} href="https://www.facebook.com/Kelsey.gabrielle.90" label="Facebook" />
           </div>
         </div>
@@ -1391,7 +1391,7 @@ export default function Portfolio() {
           </p>
 
           <a
-            href="mailto:hello@gabriellemkelsey@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=gabriellemkelsey@gmail.com"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -1427,7 +1427,7 @@ export default function Portfolio() {
           <div style={{ display: "flex", justifyContent: "center", gap: 26, marginTop: 44 }}>
             <SocialIcon Icon={Linkedin} href="https://www.linkedin.com/in/gabrielle-kelsey-88796431b/" label="LinkedIn" orientation="horizontal" />
             <SocialIcon Icon={Github} href="https://github.com/Kelsey4980" label="GitHub" orientation="horizontal" />
-            <SocialIcon Icon={Mail} href="mailto:hello@gabriellemkelsey@gmail.com" label="Email" orientation="horizontal" />
+            <SocialIcon Icon={Mail} href="https://mail.google.com/mail/?view=cm&fs=1&to=gabriellemkelsey@gmail.com" label="Email" orientation="horizontal" />
             <SocialIcon Icon={Facebook} href="https://www.facebook.com/Kelsey.gabrielle.90" label="Facebook" orientation="horizontal" />
           </div>
         </div>
